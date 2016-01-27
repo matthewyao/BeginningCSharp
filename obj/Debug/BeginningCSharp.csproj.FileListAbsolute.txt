@@ -1,0 +1,9 @@
+c:\users\natthewyao\documents\visual studio 2013\Projects\BeginningCSharp\BeginningCSharp\bin\Debug\BeginningCSharp.exe.config
+c:\users\natthewyao\documents\visual studio 2013\Projects\BeginningCSharp\BeginningCSharp\bin\Debug\BeginningCSharp.exe
+c:\users\natthewyao\documents\visual studio 2013\Projects\BeginningCSharp\BeginningCSharp\bin\Debug\BeginningCSharp.pdb
+c:\users\natthewyao\documents\visual studio 2013\Projects\BeginningCSharp\BeginningCSharp\obj\Debug\BeginningCSharp.csprojResolveAssemblyReference.cache
+c:\users\natthewyao\documents\visual studio 2013\Projects\BeginningCSharp\BeginningCSharp\obj\Debug\BeginningCSharp.exe
+c:\users\natthewyao\documents\visual studio 2013\Projects\BeginningCSharp\BeginningCSharp\obj\Debug\BeginningCSharp.pdb
+D:\programmData\BeginningCSharp\BeginningCSharp\bin\Debug\BeginningCSharp.exe.config
+D:\programmData\BeginningCSharp\BeginningCSharp\obj\Debug\BeginningCSharp.exe
+D:\programmData\BeginningCSharp\BeginningCSharp\obj\Debug\BeginningCSharp.pdb
