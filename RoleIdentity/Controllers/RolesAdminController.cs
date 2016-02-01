@@ -51,13 +51,14 @@ namespace RoleIdentity.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "仅查看角色")]
         public ActionResult Index()
         {
             return View(RoleManager.Roles);//显示角色清单
         }
 
         //异步读取角色信息
+        [Authorize(Roles = "仅查看角色")]
         public async Task<ActionResult> Details(string id)
         {
             if (id == null)
@@ -82,6 +83,7 @@ namespace RoleIdentity.Controllers
         //
         //读取角色创建
         // GET: /Roles/Create
+        [Authorize(Roles = "可修改角色")]
         public ActionResult Create()
         {
             return View();
@@ -89,6 +91,7 @@ namespace RoleIdentity.Controllers
 
         //异步写入角色创建
         // POST: /Roles/Create
+        [Authorize(Roles = "可修改角色")]
         [HttpPost]
         public async Task<ActionResult> Create(RoleViewModel roleViewModel)
         {
@@ -109,6 +112,7 @@ namespace RoleIdentity.Controllers
         //
         //异步读取角色编辑
         // GET: /Roles/Edit/Admin
+        //[Authorize(Roles = "可修改角色")]
         public async Task<ActionResult> Edit(string id)
         {
             if (id == null)
@@ -127,8 +131,8 @@ namespace RoleIdentity.Controllers
         //异步写入角色编辑
         // POST: /Roles/Edit/5
         [HttpPost]
-
         [ValidateAntiForgeryToken]
+        //[Authorize(Roles = "可修改角色")]
         public async Task<ActionResult> Edit([Bind(Include = "Name,Id")] RoleViewModel roleModel)
         {
             if (ModelState.IsValid)
@@ -144,6 +148,7 @@ namespace RoleIdentity.Controllers
         //
         //异步读取角色删除
         // GET: /Roles/Delete/5
+        [Authorize(Roles = "可修改角色")]
         public async Task<ActionResult> Delete(string id)
         {
             if (id == null)
@@ -162,6 +167,7 @@ namespace RoleIdentity.Controllers
         // POST: /Roles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "可修改角色")]
         public async Task<ActionResult> DeleteConfirmed(string id, string deleteUser)
         {
             if (ModelState.IsValid)
