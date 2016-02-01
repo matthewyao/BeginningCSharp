@@ -80,7 +80,6 @@ namespace RoleIdentity.Controllers
             return View(role);
         }
 
-        //
         //读取角色创建
         // GET: /Roles/Create
         [Authorize(Roles = "可修改角色")]
@@ -109,10 +108,9 @@ namespace RoleIdentity.Controllers
             return View();
         }
 
-        //
         //异步读取角色编辑
         // GET: /Roles/Edit/Admin
-        //[Authorize(Roles = "可修改角色")]
+        [Authorize(Roles = "可修改角色")]
         public async Task<ActionResult> Edit(string id)
         {
             if (id == null)
@@ -132,7 +130,7 @@ namespace RoleIdentity.Controllers
         // POST: /Roles/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[Authorize(Roles = "可修改角色")]
+        [Authorize(Roles = "可修改角色")]
         public async Task<ActionResult> Edit([Bind(Include = "Name,Id")] RoleViewModel roleModel)
         {
             if (ModelState.IsValid)
@@ -145,7 +143,6 @@ namespace RoleIdentity.Controllers
             return View();
         }
 
-        //
         //异步读取角色删除
         // GET: /Roles/Delete/5
         [Authorize(Roles = "可修改角色")]
@@ -199,7 +196,5 @@ namespace RoleIdentity.Controllers
             }
             return View();
         }
-
-
     }
 }

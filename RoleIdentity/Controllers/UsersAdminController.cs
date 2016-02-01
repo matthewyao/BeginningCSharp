@@ -57,7 +57,6 @@ namespace RoleIdentity.Controllers
             return View(await UserManager.Users.ToListAsync());
         }
 
-        //
         //异步读取用户详情
         //GET: /Users/Details/5
         [Authorize(Roles = "仅查看用户")]
@@ -84,7 +83,7 @@ namespace RoleIdentity.Controllers
             ViewBag.RoleId = new SelectList(await RoleManager.Roles.ToListAsync(), "Name", "Name");
             return View();
         }
-        //
+
         //异步写入用户创建
         // POST: /Users/Create
         [Authorize(Roles = "可修改用户")]
@@ -150,7 +149,7 @@ namespace RoleIdentity.Controllers
                 })
             });
         }
-        //
+
         //写入用户编辑
         // POST: /Users/Edit/5
         [HttpPost]
@@ -182,7 +181,6 @@ namespace RoleIdentity.Controllers
             return View();
         }
 
-        //
         //读取用户删除
         // GET: /Users/Delete/5
         [Authorize(Roles = "可修改用户")]
@@ -199,7 +197,7 @@ namespace RoleIdentity.Controllers
             }
             return View(user);
         }
-        //
+
         //写入角色删除
         // POST: /Users/Delete/5
         [HttpPost, ActionName("Delete")]
