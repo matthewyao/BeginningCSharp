@@ -75,7 +75,7 @@ namespace RoleIdentity.Controllers
         //
         //异步读取用户创建
         //GET:/Users/Create
-        [Authorize(Roles = "可修改用户")]
+        //[Authorize(Roles = "可修改用户")]
         public async Task<ActionResult> Create()
         {
             //读取角色列表
@@ -85,7 +85,7 @@ namespace RoleIdentity.Controllers
 
         //异步写入用户创建
         // POST: /Users/Create
-        [Authorize(Roles = "可修改用户")]
+        //[Authorize(Roles = "可修改用户")]
         [HttpPost]
         public async Task<ActionResult> Create(RegisterViewModel userViewModel, params  string[] selectedRoles)
         {

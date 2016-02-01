@@ -69,6 +69,6 @@ D:\programmData\BeginningCSharp\RoleIdentity\bin\zh-Hans\Microsoft.Owin.Security
 D:\programmData\BeginningCSharp\RoleIdentity\bin\zh-Hans\Microsoft.Owin.Security.Google.resources.dll
 D:\programmData\BeginningCSharp\RoleIdentity\bin\zh-Hans\Microsoft.Owin.Security.Twitter.resources.dll
 D:\programmData\BeginningCSharp\RoleIdentity\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-D:\programmData\BeginningCSharp\RoleIdentity\obj\Debug\RoleIdentity.csprojResolveAssemblyReference.cache
 D:\programmData\BeginningCSharp\RoleIdentity\obj\Debug\RoleIdentity.dll
 D:\programmData\BeginningCSharp\RoleIdentity\obj\Debug\RoleIdentity.pdb
+D:\programmData\BeginningCSharp\RoleIdentity\obj\Debug\RoleIdentity.csprojResolveAssemblyReference.cache

@@ -82,7 +82,7 @@ namespace RoleIdentity.Controllers
 
         //读取角色创建
         // GET: /Roles/Create
-        [Authorize(Roles = "可修改角色")]
+        //[Authorize(Roles = "可修改角色")]
         public ActionResult Create()
         {
             return View();
@@ -90,7 +90,7 @@ namespace RoleIdentity.Controllers
 
         //异步写入角色创建
         // POST: /Roles/Create
-        [Authorize(Roles = "可修改角色")]
+        //[Authorize(Roles = "可修改角色")]
         [HttpPost]
         public async Task<ActionResult> Create(RoleViewModel roleViewModel)
         {

@@ -25,7 +25,11 @@ namespace RoleIdentity.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        static ApplicationDbContext()
+        {
+            // 在第一次启动网站时初始化数据库添加管理员用户凭据和admin 角色到数据库
+            Database.SetInitializer<ApplicationDbContext>(new ApplicationDbInitializer());
+        }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

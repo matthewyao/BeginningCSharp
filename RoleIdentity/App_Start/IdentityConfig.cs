@@ -88,6 +88,53 @@ namespace RoleIdentity
         }
     }
 
+    public class ApplicationDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
+    {
+        protected override void Seed(ApplicationDbContext context)
+        {
+            InitializeIdentityForEF(context);
+            base.Seed(context);
+        }
+
+        //创建用户名为admin@123.com，密码为“Admin@123456”并把该用户添加到角色组"Admin"中
+        public static void InitializeIdentityForEF(ApplicationDbContext db)
+        {
+            var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var roleManager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
+            const string name = "admin@pptv.com";//用户名
+            const string password = "90()IOpl";//密码
+            //List<string> roles = new List<string>() { "查看菜单", "仅查看用户", "可修改用户", "仅查看角色", "可修改角色" };
+            const string roleName = "Admin";//用户要添加到的角色组
+
+            //foreach (var roleName in roles)
+            //{
+                //如果没有Admin用户组则创建该组
+                var role = roleManager.FindByName(roleName);
+                if (role == null)
+                {
+                    role = new IdentityRole(roleName);
+                    var roleresult = roleManager.Create(role);
+                }
+
+                //如果没有admin@123.com用户则创建该用户
+                var user = userManager.FindByName(name);
+                if (user == null)
+                {
+                    user = new ApplicationUser { UserName = name, Email = name };
+                    var result = userManager.Create(user, password);
+                    result = userManager.SetLockoutEnabled(user.Id, false);
+                }
+
+                // 把用户admin@123.com添加到用户组Admin中
+                var rolesForUser = userManager.GetRoles(user.Id);
+                if (!rolesForUser.Contains(role.Name))
+                {
+                    var result = userManager.AddToRole(user.Id, role.Name);
+                }
+            }           
+        //}
+    }
+
     // 配置要在此应用程序中使用的应用程序登录管理器。
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
     {
